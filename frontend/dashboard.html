@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureBank | Dashboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body class="dashboard-page">
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <a class="brand brand-light sidebar-brand" href="dashboard.html">
+      <span class="brand-mark">S</span>
+      <span>SecureBank</span>
+    </a>
+
+    <div class="sidebar-label">WORKSPACE</div>
+
+    <nav class="sidebar-nav" aria-label="Main navigation">
+      <a class="nav-item active" href="#dashboard-top">
+        <span class="nav-icon">▦</span> Dashboard
+      </a>
+      <a class="nav-item" href="#banking-services">
+        <span class="nav-icon">↔</span> Banking services
+      </a>
+      <a class="nav-item" href="#transactions">
+        <span class="nav-icon">≡</span> Transactions
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-help">
+        <div class="help-icon">?</div>
+        <div>
+          <strong>Need a hand?</strong>
+          <span>Manage your account with confidence.</span>
+        </div>
+      </div>
+
+      <button class="btn sidebar-logout" id="logoutButton" type="button">
+        <span>↪</span> Log out
+      </button>
+
+      <div class="sidebar-caption">SECUREBANK · DEMO</div>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div>
+        <div class="topbar-kicker">YOUR FINANCIAL OVERVIEW</div>
+        <div class="topbar-title">Banking dashboard</div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="secure-pill"><span></span> Secure session</div>
+        <div class="user-avatar">U</div>
+      </div>
+    </header>
+
+    <main class="dashboard-content" id="dashboard-top">
+
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">OVERVIEW</p>
+          <h1>Good to see you.</h1>
+          <p class="welcome-subtitle">
+            Here’s what’s happening with your account today.
+          </p>
+        </div>
+        <div class="date-chip">
+          <span>◷</span> Your account at a glance
+        </div>
+      </section>
+
+      <!-- Account summary -->
+      <section class="summary-grid">
+        <article class="balance-card">
+          <div class="balance-card-top">
+            <div class="balance-label">
+              <span class="balance-symbol">₹</span>
+              Available balance
+            </div>
+            <span class="balance-status">
+              <span></span> Account overview
+            </span>
+          </div>
+
+          <div class="balance-value" id="accountBalance">₹0.00</div>
+
+          <div class="balance-bottom">
+            <div>
+              <span class="balance-caption">Account status</span>
+              <strong id="accountStatus">Loading…</strong>
+            </div>
+            <div class="balance-chip">S</div>
+          </div>
+
+          <div class="balance-orb orb-one"></div>
+          <div class="balance-orb orb-two"></div>
+        </article>
+
+        <article class="insight-card">
+          <div class="insight-top">
+            <span class="insight-icon">↗</span>
+            <span class="insight-tag">ACCOUNT</span>
+          </div>
+          <h3>Stay in control</h3>
+          <p>
+            Deposit, withdraw, or transfer funds from your banking workspace.
+          </p>
+          <a href="#banking-services" class="text-link">
+            Explore services <span>→</span>
+          </a>
+        </article>
+      </section>
+
+      <!-- Banking services -->
+      <section id="banking-services" class="content-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MOVE YOUR MONEY</p>
+            <h2>Banking services</h2>
+          </div>
+          <span class="section-note">Choose an action to get started</span>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Deposit -->
+          <article class="service-card service-deposit">
+            <div class="service-card-heading">
+              <div class="service-icon">↓</div>
+              <span class="service-number">01</span>
+            </div>
+
+            <h3>Deposit money</h3>
+            <p>Add funds to your account balance.</p>
+
+            <form id="depositForm" class="service-form">
+              <label for="depositAmount" class="form-label">
+                Amount (₹)
+              </label>
+              <input
+                type="number"
+                id="depositAmount"
+                class="form-control"
+                placeholder="0.00"
+                min="0.01"
+                step="0.01"
+                required
+              >
+
+              <button type="submit" class="btn service-button">
+                Deposit funds <span>→</span>
+              </button>
+              <p id="depositMessage" class="inline-message" aria-live="polite"></p>
+            </form>
+          </article>
+
+          <!-- Withdrawal -->
+          <article class="service-card service-withdraw">
+            <div class="service-card-heading">
+              <div class="service-icon">↑</div>
+              <span class="service-number">02</span>
+            </div>
+
+            <h3>Withdraw money</h3>
+            <p>Move funds out of your account.</p>
+
+            <form id="withdrawForm" class="service-form">
+              <label for="withdrawAmount" class="form-label">
+                Amount (₹)
+              </label>
+              <input
+                type="number"
+                id="withdrawAmount"
+                class="form-control"
+                placeholder="0.00"
+                min="0.01"
+                step="0.01"
+                required
+              >
+
+              <button type="submit" class="btn service-button">
+                Withdraw funds <span>→</span>
+              </button>
+              <p id="withdrawMessage" class="inline-message" aria-live="polite"></p>
+            </form>
+          </article>
+
+          <!-- Transfer -->
+          <article class="service-card service-transfer">
+            <div class="service-card-heading">
+              <div class="service-icon">⇄</div>
+              <span class="service-number">03</span>
+            </div>
+
+            <h3>Transfer money</h3>
+            <p>Send funds to another account.</p>
+
+            <form id="transferForm" class="service-form">
+              <label for="destinationAccount" class="form-label">
+                Destination account number
+              </label>
+              <input
+                type="text"
+                id="destinationAccount"
+                class="form-control"
+                placeholder="Enter account number"
+                required
+              >
+
+              <label for="transferAmount" class="form-label transfer-amount-label">
+                Amount (₹)
+              </label>
+              <input
+                type="number"
+                id="transferAmount"
+                class="form-control"
+                placeholder="0.00"
+                min="0.01"
+                step="0.01"
+                required
+              >
+
+              <button type="submit" class="btn service-button">
+                Transfer funds <span>→</span>
+              </button>
+              <p id="transferMessage" class="inline-message" aria-live="polite"></p>
+            </form>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Transactions -->
+      <section id="transactions" class="content-section transactions-section">
+        <div class="section-heading transaction-heading">
+          <div>
+            <p class="eyebrow">ACCOUNT ACTIVITY</p>
+            <h2>Recent transactions</h2>
+            <p class="section-description">
+              Review and search your latest account activity.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="printStatementButton"
+            class="btn statement-button"
+          >
+            <span>↧</span> Print mini statement
+          </button>
+        </div>
+
+        <div class="transactions-card">
+          <div class="transaction-tools">
+            <div class="search-field">
+              <label for="transactionSearch" class="form-label">
+                Search transactions
+              </label>
+              <div class="input-with-icon">
+                <span>⌕</span>
+                <input
+                  type="text"
+                  id="transactionSearch"
+                  class="form-control"
+                  placeholder="Search by reference..."
+                >
+              </div>
+            </div>
+
+            <div class="filter-field">
+              <label for="transactionTypeFilter" class="form-label">
+                Transaction type
+              </label>
+              <select id="transactionTypeFilter" class="form-select">
+                <option value="ALL">All transactions</option>
+                <option value="DEPOSIT">Deposit</option>
+                <option value="WITHDRAWAL">Withdrawal</option>
+                <option value="CREDITED">Credited</option>
+                <option value="DEBITED">Debited</option>
+                <option value="TRANSFER">Old transfers</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="transaction-status-line">
+            <span class="activity-dot"></span>
+            <p id="transactionMessage" class="mb-0">
+              Loading transactions...
+            </p>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table transaction-table align-middle">
+              <thead>
+                <tr>
+                  <th>TRANSACTION TYPE</th>
+                  <th>AMOUNT</th>
+                  <th>REFERENCE</th>
+                  <th>DATE</th>
+                </tr>
+              </thead>
+              <tbody id="transactionTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="dashboard-footer">
+        <span>© 2026 SecureBank · Learning project</span>
+        <span>Built for clear, simple banking</span>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<!-- Transaction success popup -->
+<div id="successPopup" class="success-popup"
+     role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="success-popup-content">
+    <div class="success-icon">✓</div>
+    <p class="eyebrow">TRANSACTION UPDATE</p>
+
+    <h4 id="successTitle">Transaction Successful!</h4>
+    <p id="successDescription">
+      Your transaction has been completed successfully.
+    </p>
+
+    <button class="btn service-button popup-button"
+            id="successOkButton" type="button">
+      Continue <span>→</span>
+    </button>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
