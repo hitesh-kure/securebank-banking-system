@@ -277,7 +277,7 @@ This project demonstrates practical experience with:
 
 ## Author
 
-**Developer:** [Your Name]
+**Developer:** Hitesh Kure
 
 **Project:** SecureBank – Banking Transaction Management System
 
