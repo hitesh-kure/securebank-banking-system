@@ -57,26 +57,34 @@ This project is designed as a practical demonstration of Python, Django REST Fra
 
 ## Project Structure
 
-The project is organized around a Django backend, a banking application, and frontend files. Your exact filenames and folders may differ depending on your final project structure.
-
 ```text
 banking_project/
-├── manage.py
-├── banking_project/
-│   ├── settings.py
-│   ├── urls.py
-│   └── ...
 ├── banking/
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
 │   ├── models.py
 │   ├── serializers.py
-│   ├── views.py
-│   ├── urls.py
 │   ├── tests.py
-│   └── ...
-├── templates/          # If used in your project
-├── static/             # If used in your project
-├── requirements.txt    # If created
-└── README.md
+│   ├── urls.py
+│   └── views.py
+├── config/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── frontend/
+│   ├── css/
+│   ├── images/
+│   ├── js/
+│   ├── dashboard.html
+│   └── index.html
+├── .gitignore
+├── manage.py
+├── README.md
+└── requirements.txt
 ```
 
 ## Prerequisites
